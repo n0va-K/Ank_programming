@@ -12,13 +12,14 @@ namespace task03
         {
             Console.WriteLine("Введите трёхзначное число: ");
 
-            int i = Convert.ToInt32(Console.ReadLine());
+            int i = int.Parse(Console.ReadLine());
 
             int a = i / 100;
-            int b = ((i - (i / 100) * 100)) / 10;
+            int b = (i/10)%10;
             int c = i % 10;
+            int d = c*100 + b*10 + a;
 
-            Console.WriteLine("Число с противоположным порядком цифр = "+c+b+a);
+            Console.WriteLine("Число с противоположным порядком цифр = "+d);
 
             Console.ReadKey();
 

@@ -12,14 +12,14 @@ namespace task10_4
             if (!int.TryParse(Console.ReadLine(), out number) || number < 1)
             {
                 Console.WriteLine("Число не натуральное");
-                Console.ReadKey();
+
                 return;
             }
 
             if (!int.TryParse(Console.ReadLine(), out number) || RepeatedDigits(number))
             {
                 Console.WriteLine("Цифры в числе повторяются");
-                Console.ReadKey();
+
                 return;
             }
 

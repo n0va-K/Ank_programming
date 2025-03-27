@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InsuredOrder.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UrgentOrder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

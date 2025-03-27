@@ -8,20 +8,15 @@ namespace OrderLibrary
         public readonly string ItemID;
         public string CourierSurname { get; set; }
         public readonly string OrderNumber;
-        public DateTime DeliveryDate;
-        public OrderType Type;
+        public DateTime DeliveryDate { get; set; }
+        public OrderType Type { get; set; }
 
-        public Order(string itemName, string itemID, string courierSurname, string orderNumber, string deliveryDate, OrderType type)
+        public Order(string itemName, string itemID, string courierSurname, string orderNumber)
         {
             ItemName = itemName;
             ItemID = itemID;
             CourierSurname = courierSurname;
             OrderNumber = orderNumber;
-            Type = type;
-
-            if (!DateTime.TryParse(deliveryDate, out DeliveryDate))
-                throw new ArgumentException("Неверный формат даты доставки");
-            
         }
 
         public virtual string[] GetInfo()

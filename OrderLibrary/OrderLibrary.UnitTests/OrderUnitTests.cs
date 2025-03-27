@@ -16,7 +16,7 @@ namespace OrderLibrary.UnitTests
             Assert.That(order.ItemID, Is.EqualTo("0000"));
             Assert.That(order.CourierSurname, Is.EqualTo("Jobs"));
             Assert.That(order.OrderNumber, Is.EqualTo("1"));
-            Assert.That(order.DeliveryDate.ToShortDateString, Is.EqualTo("07.03.2025"));
+            Assert.That(order.DeliveryDate.ToShortDateString(), Is.EqualTo("07.03.2025"));
             Assert.That(order.Type, Is.EqualTo(OrderType.Urgent));
         }
 
@@ -26,8 +26,7 @@ namespace OrderLibrary.UnitTests
             var order = CreateTestOrder();
             var info = order.GetInfo();
 
-            Assert.That(info.Length, Is.EqualTo(2));
-            Assert.That(info[0], Is.EqualTo("iPhone \n 0000"));
+            Assert.That(info.Length, Is.EqualTo(2)); 
 
             string expectedInfo = $"Название товара: iPhone\n" +
                                   $"Артикул товара: 0000\n" +
@@ -41,7 +40,12 @@ namespace OrderLibrary.UnitTests
 
         private Order CreateTestOrder()
         {
-            return new Order("iPhone", "0000", "Jobs", "1", "07.03.2025", OrderType.Urgent);
+            var order = new Order("iPhone", "0000", "Jobs", "1")
+            {
+                DeliveryDate = DateTime.Parse("07.03.2025"),
+                Type = OrderType.Urgent
+            };
+            return order;
         }
     }
 }

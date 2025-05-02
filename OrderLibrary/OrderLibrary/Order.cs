@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Xml.Linq;
 
 namespace OrderLibrary
 {
-    public class Order
+    public class Order: IComparable<Order>
     {
         public string ItemName { get; set; }
         public readonly string ItemID;
@@ -33,6 +34,16 @@ namespace OrderLibrary
                       $"Дата и время доставки: {DeliveryDate:d}\n" +
                       $"Тип заказа: {type}";
             return info;
+        }
+
+        public int CompareTo(Order other)
+        {
+            if (CourierSurname != other.CourierSurname)
+                return CourierSurname.CompareTo(other.CourierSurname);
+            else if (Type != other.Type)
+                return Type.CompareTo(other.Type);
+            else
+                return DeliveryDate.CompareTo(other.DeliveryDate);
         }
     }
 }

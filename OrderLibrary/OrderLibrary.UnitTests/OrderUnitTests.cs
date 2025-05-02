@@ -46,6 +46,6 @@ namespace OrderLibrary.UnitTests
                 Type = OrderType.Urgent
             };
             return order;
-        }
+        }  
     }
 }
